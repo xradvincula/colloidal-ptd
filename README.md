@@ -6,7 +6,7 @@ In these scripts, we consider a colloidal system consisting of 421 atoms dispers
 
 ## Sampling Phase Transition Data
 
-All the relevant scripts for the sampling of phase transition data along with the results obtained can be found in the `sampling` folder. As seen, to carry out all the procedures in an automated and efficient manner, appropriate Make, Bash and Python scripts were developed. In this case, access to `matteo-2.chemeng.ucl.ac.uk` through Socrates (used as a "jump box" for Research Computing services at UCL) is required. Despite this, examples and comments on their usage and functions are provided throughout the scripts.
+All the relevant scripts for the sampling of phase transition data along with the results obtained can be found in the `sampling` folder. As seen, to carry out all the procedures in an automated and efficient manner, appropriate Make, Bash and Python scripts were developed. In this case, access to `matteo-2.chemeng.ucl.ac.uk` through Socrates (used as a "jump box" for Research Computing services at UCL) is required. Despite this, examples and comments on their usage and functions are provided throughout the scripts. Note that SRC=dump.3Dcolloid.13.xyz refers to the initial crystallising trajectory (reference), which is available upon reasonable request.
 
 ## Analysing Phase Transition Data
 

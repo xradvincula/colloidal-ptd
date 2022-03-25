@@ -1,4 +1,4 @@
-# CENG0038: Chemical Engineering Research Project
+# Sampling and Analysing Phase Transition Data for the Approximation of Nucleation Collective Variables Using Graph Neural Networks
 
 The scripts collected here were used for the development of the results reported in the author's thesis, submitted as part of the curriculum for the degree of MEng Engineering (Chemical) at University College London (UCL). The data supporting the findings of this work is available from the corresponding author upon reasonable request.
 

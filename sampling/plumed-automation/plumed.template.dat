@@ -1,0 +1,28 @@
+# PLUMED input file to generate trajectories using committor analysis
+
+# atoms of interest
+grp: GROUP ATOMS=1-421
+
+# calculate their coordination number distributions and find the correspondings with ci>3
+cn: COORDINATIONNUMBER SPECIES=grp SWITCH={RATIONAL R_0=7.0 D_MAX=8.0} LOWMEM MORE_THAN={RATIONAL R_0=3.0 D_MAX=13.0}
+
+# calculate the number of particles with crystalline order (first shell geometries)
+q6: Q6 SPECIES=grp SWITCH={RATIONAL R_0=7.0 D_MAX=8.0} LOWMEM
+lq6: LOCAL_Q6 SPECIES=q6 SWITCH={RATIONAL R_0=7.0 D_MAX=8.0} LOWMEM
+flq6: MFILTER_MORE DATA=lq6 SWITCH={GAUSSIAN R_0=0.69 D_MAX=0.70} 
+
+# calculate the coordination number distributions for these crystalline particles and count them
+cnq6: COORDINATIONNUMBER SPECIES=flq6 SWITCH={RATIONAL R_0=7.0 D_MAX=8.0} MEAN MORE_THAN={RATIONAL R_0=11.0 D_MAX=13.0}
+
+# print to a file
+PRINT ARG=cn.morethan,cnq6.morethan STRIDE=100000 FILE=cn.$RUN.dat
+
+# committor analysis
+COMMITTOR ...
+ ARG=cnq6.morethan
+ STRIDE=100000
+ BASIN_LL1=0.0
+ BASIN_UL1=0.2
+ BASIN_LL2=10.0
+ BASIN_UL2=50.0
+... COMMITTOR
